@@ -1,0 +1,27 @@
+package com.beathub.multiarenas.delivery.auth.service.business;
+
+import com.beathub.multiarenas.delivery.auth.dto.request.AsignarArenaUsuarioRequest;
+import com.beathub.multiarenas.delivery.auth.dto.request.LoginRequest;
+import com.beathub.multiarenas.delivery.auth.dto.request.RegistroRequest;
+import com.beathub.multiarenas.delivery.auth.dto.request.SsoLoginRequest;
+import com.beathub.multiarenas.delivery.auth.dto.request.ValidateTokenRequest;
+import com.beathub.multiarenas.delivery.auth.dto.response.AuthResponse;
+import com.beathub.multiarenas.delivery.auth.dto.response.TokenValidationResponse;
+import com.beathub.multiarenas.delivery.auth.dto.response.UserProfileResponse;
+
+public interface AuthService {
+
+    AuthResponse login(LoginRequest request);
+
+    AuthResponse registro(RegistroRequest request);
+
+    AuthResponse ssoLogin(SsoLoginRequest request);
+
+    TokenValidationResponse validarToken(ValidateTokenRequest request);
+
+    UserProfileResponse obtenerPerfil(Long usuarioId);
+
+    AuthResponse refreshToken(Long usuarioId, Long newArenaId);
+
+    UserProfileResponse asignarArenaUsuario(AsignarArenaUsuarioRequest request);
+}
